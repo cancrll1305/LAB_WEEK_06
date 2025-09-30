@@ -31,11 +31,10 @@ class MainActivity : AppCompatActivity() {
             false
         )
 
-        // ✅ Tambahkan swipe-to-delete
+
         val itemTouchHelper = ItemTouchHelper(catAdapter.swipeToDeleteCallback)
         itemTouchHelper.attachToRecyclerView(recyclerView)
 
-        // ✅ Tambahkan data
         catAdapter.setData(
             listOf(
                 CatModel(
@@ -58,6 +57,55 @@ class MainActivity : AppCompatActivity() {
                     "Curious George",
                     "Award winning investigator",
                     "https://cdn2.thecatapi.com/images/bar.jpg"
+                ),
+                CatModel(
+                    Gender.Male,
+                    CatBreed.BalineseJavanese,
+                    "Tommy",
+                    "Lazy but cute",
+                    "https://cdn2.thecatapi.com/images/MTY3ODIyMQ.jpg"
+                ),
+                CatModel(
+                    Gender.Female,
+                    CatBreed.ExoticShorthair,
+                    "Luna",
+                    "Queen of the house",
+                    "https://cdn2.thecatapi.com/images/MTY3ODIyNA.jpg"
+                ),
+                CatModel(
+                    Gender.Unknown,
+                    CatBreed.AmericanCurl,
+                    "Shadow",
+                    "Always hiding",
+                    "https://cdn2.thecatapi.com/images/MTY3ODIyNQ.jpg"
+                ),
+                CatModel(
+                    Gender.Male,
+                    CatBreed.ExoticShorthair,
+                    "Simba",
+                    "The little lion",
+                    "https://cdn2.thecatapi.com/images/MTY3ODIyNg.jpg"
+                ),
+                CatModel(
+                    Gender.Female,
+                    CatBreed.BalineseJavanese,
+                    "Misty",
+                    "Sweet and shy",
+                    "https://cdn2.thecatapi.com/images/MTY3ODIyNw.jpg"
+                ),
+                CatModel(
+                    Gender.Male,
+                    CatBreed.AmericanCurl,
+                    "Leo",
+                    "Playful hunter",
+                    "https://cdn2.thecatapi.com/images/MTY3ODIyOA.jpg"
+                ),
+                CatModel(
+                    Gender.Female,
+                    CatBreed.ExoticShorthair,
+                    "Cleo",
+                    "Elegant and classy",
+                    "https://cdn2.thecatapi.com/images/MTY3ODIyOQ.jpg"
                 )
             )
         )
