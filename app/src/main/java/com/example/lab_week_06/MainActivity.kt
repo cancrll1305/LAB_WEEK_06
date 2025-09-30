@@ -1,6 +1,7 @@
 package com.example.lab_week_06
 
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -16,7 +17,12 @@ class MainActivity : AppCompatActivity() {
 
     private val catAdapter by lazy {
         // Glide digunakan untuk load gambar
-        CatAdapter(layoutInflater, GlideImageLoader(this))
+        // Di sini kita pasang listener untuk klik item
+        CatAdapter(layoutInflater, GlideImageLoader(this), object : CatAdapter.OnClickListener {
+            override fun onItemClick(cat: CatModel) {
+                showSelectionDialog(cat)
+            }
+        })
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         // Setup adapter untuk RecyclerView
         recyclerView.adapter = catAdapter
 
-        // Setup layout manager (vertikal)
+        // Setup layout manager
         recyclerView.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
@@ -56,5 +62,14 @@ class MainActivity : AppCompatActivity() {
                 )
             )
         )
+    }
+
+    // Membuat pop up dialog saat item diklik
+    private fun showSelectionDialog(cat: CatModel) {
+        AlertDialog.Builder(this)
+            .setTitle("Cat Selected")
+            .setMessage("You have selected cat ${cat.name}")
+            .setPositiveButton("OK", null)
+            .show()
     }
 }
